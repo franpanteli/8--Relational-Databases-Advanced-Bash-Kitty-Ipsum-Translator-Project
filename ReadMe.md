@@ -1,6 +1,6 @@
 # Relational-Databases-Advanced-Bash-Kitty-Ipsum-Translator-Project
 ## Relational Databases Independent Learning
-I independently completed [my eighth project](https://www.freecodecamp.org/learn/relational-database/learn-advanced-bash-by-building-a-kitty-ipsum-translator/build-a-kitty-ipsum-translator) in freeCodeCamp's [Relational Databases course](https://www.freecodecamp.org/learn/relational-database/) to improve my INSERT_E.G_SQL,SHELL,SCRIPTING and INSERT skills. This curriculum consisted of 14 guided projects, to be completed in a Gitpod environment. My notes outlining the names (et al) of these guided projects are [here](INSERT_LINK). This repository is for the eighth of these projects I completed as part of this.
+I independently completed [my eighth project](https://www.freecodecamp.org/learn/relational-database/learn-advanced-bash-by-building-a-kitty-ipsum-translator/build-a-kitty-ipsum-translator) in freeCodeCamp's [Relational Databases course](https://www.freecodecamp.org/learn/relational-database/) to improve my INSERT_E.G_SQL,SHELL,SCRIPTING and INSERT skills. This curriculum consisted of 14 guided projects, to be completed in a Gitpod environment. My notes outlining the names (et al) of these guided projects are [here](https://github.com/franpanteli/8--Relational-Databases-Advanced-Bash-Kitty-Ipsum-Translator-Project/blob/main/0%20relational-databases-course-overview.txt). This repository is for the eighth of these projects I completed as part of this.
 
 ## Adding INSERT_THIS
 ### Problem Solving
