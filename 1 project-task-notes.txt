@@ -2,7 +2,7 @@ These are my notes on the project task page. This project is called "Build a Kit
 
 About this guided project:
 	- This is a 140-lesson guided project
-	- This project is about more complex commands and how they work
+	- This project is about more complex Bash commands and how they work
 
 To complete the guided project:
 	- Copy the project boilerplate code in a Gitpod environment 
