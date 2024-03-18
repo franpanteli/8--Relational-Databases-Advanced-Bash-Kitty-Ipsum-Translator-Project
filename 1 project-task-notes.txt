@@ -1,7 +1,8 @@
 These are my notes on the project task page. This project is called "Build a Kitty Ipsum Translator." The URL for the page which these notes are on is https://www.freecodecamp.org/learn/relational-database/learn-advanced-bash-by-building-a-kitty-ipsum-translator/build-a-kitty-ipsum-translator
 
-- This is a 140 lesson guided project
-- This project is about commands -> more complex commands and how they work
+About this guided project:
+	- This is a 140-lesson guided project
+	- This project is about more complex commands and how they work
 
 To complete the guided project:
 	- Copy the project boilerplate code in a Gitpod environment 
@@ -9,5 +10,6 @@ To complete the guided project:
 	- CodeRoad: Start
 	- Complete the guided project 
 
-- You have to complete all of the project progress in one go (without backing out of Gitpod)
-	- Otherwise your progress might not be saved in which case you would have to redo it
+Saving progress: 
+	- You have to complete all of the project progress in one go (without backing out of Gitpod)
+		- Otherwise your progress might not be saved -> in which case you would have to redo it
