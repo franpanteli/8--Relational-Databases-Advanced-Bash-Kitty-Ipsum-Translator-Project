@@ -147,31 +147,186 @@
 -> grep --color -n 'meow[a-z]*' kitty_ipsum_1.txt
 	-> meow[a-z]* <- To see all words in the file that start with meow 
 -> echo -e "\nNumber of times meow or meowzer appears:" >> kitty_info.txt
-	-> 
-
-
-
-
-
-
-
-
-
-
-Looking at the output, you can see that it matched meow and meowzer, instead of just meow. Use the echo command and redirection to append the text Number of times meow or meowzer appears:, with a new line in front of it, to the kitty_info.txt file.
-
-1. Here's an example: <command> >> <filename>
-
-2. You want the echo command with the -e flag and the new line character (\n)
-
-3. You previously entered echo -e "\nNumber of characters:" >> kitty_info.txt
-
-4. Enter echo -e "\nNumber of times meow or meowzer appears:" >> kitty_info.txt in the terminal
-
-
-
-
-
-
-
-
+	-> Append this statement to this txt file 
+-> grep --color 'meow[a-z]*' kitty_ipsum_1.txt
+	-> Search for the words which begin with this pattern in this txt file, and highlight them 
+-> grep -c 'meow[a-z]*' kitty_ipsum_1.txt
+	-> -c <- A flag for a count 
+	-> Count the amount of times a word in this file begins with meow, and print out the value of that count in the terminal 
+-> man grep <- Manual pages on this (the search) command 
+-> grep -o 'meow[a-z]*' kitty_ipsum_1.txt
+	-> -o <- A flag -> put the matches on their own lines 
+	-> Find (grep, search for) all of the words in this text file which begin with meow and return those matching words on new lines 
+-> grep -o 'meow[a-z]*' kitty_ipsum_1.txt | wc -l
+	-> wc <- Count the lines 
+	-> Before the pipe: grep -o 'meow[a-z]*' kitty_ipsum_1.txt
+		-> The same as the previous line 
+		-> It returns words in the text which match the search, and each word which matches the search is on its own line 
+	-> We are taking the output of that line -> and piping it as the input of the command which counts the number of lines 
+	-> So we are counting the number of words which match the search 
+-> grep -o 'meow[a-z]*' kitty_ipsum_1.txt | wc -l >> kitty_info.txt
+	-> Take the output of the previous command and append (>>) it to this txt file 
+-> echo -e "\nLines that they appear on:" >> kitty_info.txt
+	-> \n <- New line
+	-> Add (>>) this echo statement to this txt file 
+	-> -e <- To add back slash escapes 
+-> grep -n 'meow[a-z]*' kitty_ipsum_1.txt
+	-> -n <- To get line numbers
+	-> Search for this pattern in this .txt file -> and for each match you find, print the match and the line number you found it on 
+-> man grep <- Manual pages for the search command 
+-> cat name.txt
+	-> Print the content of this file 
+	-> Use this file as the argument of that program 
+-> sed 's/r/2/' name.txt
+	-> sed 's/<pattern_to_replace>/<text_to_replace_it_with>/' <filename> 
+	-> sed is to replace text 
+	-> This outputs to stdout without a filename 
+-> sed 's/free/f233/' name.txt
+-> sed 's/freecodecamp/f233C0d3C@mp/' name.txt
+	-> These are patterns 
+-> sed 's/freecodecamp/f233C0d3C@mp/i' name.txt
+	-> Adding regex flags to tell it to ignore the case 
+	-> We are replacing text -> there are cases it won't work if it's not case sensitive 
+-> sed 's/freecodecamp/f233C0d3C@mp/i' < name.txt 
+	-> To redirect the input 
+	-> Use the name.txt file and put the input from it into this replace command `sed 's/freecodecamp/f233C0d3C@mp/I'`
+-> cat name.txt | sed 's/freecodecamp/f233C0d3C@mp/i'
+	-> | <- Pipe method
+	-> Take the output of this command (print out the contents of this txt file), and use it as the input to this find and replace command 
+-> grep -n 'meow[a-z]*' kitty_ipsum_1.txt
+	-> Add the line numbers 	
+	-> -n Flag 
+	-> Search for this text in this file -> print the places you find it in the text, and the number line of that place 
+-> grep -n 'meow[a-z]*' kitty_ipsum_1.txt | sed 's/[0-9]/1/'
+	-> Replace 0-9 with 1 
+	-> Before the pipe: grep -n 'meow[a-z]*' kitty_ipsum_1.txt
+		-> Search for this text in this file 
+		-> Print out the text in the file, but with the matching searches in bold 
+		-> Also print out the line number you found the search item on 
+	-> After the pipe: sed 's/[0-9]/1/'
+		-> We have a block of text, with with the matching searches in bold and a (line) number to the left of the block of text each time a matching search result was found 
+		-> Take that result, and use it as the input to this command -> which replaces all of the 0-9's with a 1 
+-> grep -n 'meow[a-z]*' kitty_ipsum_1.txt | sed 's/[0-9]+/1/'
+	-> This is the same as the previous line 
+	-> This doesn't just find and replace the first digit 
+-> man sed <- Search the manual pages for the find and replace command 
+-> grep -n 'meow[a-z]*' kitty_ipsum_1.txt | sed -E 's/[0-9]+/1/'
+	-> -n <- Flag 
+	-> -E <- For extended regular expressions 
+-> grep -n 'meow[a-z]*' kitty_ipsum_1.txt | sed -E 's/([0-9]+)/\1/'
+	-> Capturing the numbers to use them in a replacement area
+	-> We are finding and replacing with the sed command 
+	-> We are using regex flags with this command for this 
+-> grep -n 'meow[a-z]*' kitty_ipsum_1.txt | sed -E 's/([0-9]+).*/\1/'
+	-> Matching everything else on each line and replacing it with a number
+	-> We are capturing numbers and replacing everything with the captured numbers 
+	-> Before the pipe: "grep -n 'meow[a-z]*' kitty_ipsum_1.txt"
+		-> Search for all of the words which begin with meow in this text file 
+	-> After the pipe: "sed -E 's/([0-9]+).*/\1/'"
+		-> Replace it with this 
+-> grep -n 'meow[a-z]*' kitty_ipsum_1.txt | sed -E 's/([0-9]+).*/\1/' >> kitty_info.txt
+	-> Append (>>) the output of the previous command to this txt file 
+-> grep --color 'cat[a-z]*' kitty_ipsum_1.txt
+	-> Search (grep) for this pattern 
+	-> Search this txt file for words which begin with cat
+	-> Return that txt file in the terminal, but with all of the matching searches in red in that file 
+-> echo -e "\nNumber of times cat, cats, or catnip appears:" >> kitty_info.txt
+	-> Add this text to this txt file 
+-> grep -o 'cat[a-z]*' kitty_ipsum_1.txt
+	-> -o <- This is a flag 
+	-> To find the number of terms which match the search 
+	-> Search (grep) for words which begin with cat in this txt file 
+	-> Then put all of the words you find that match it on their own line 
+	-> Then the next command pipes this as the input into a command which counts the number of lines (the number of matching terms in the file / grep search)
+		-> We are doing this across several different Bash lines 
+-> grep -o 'cat[a-z]*' kitty_ipsum_1.txt | wc -l
+	-> Before the pipe: the same as the previous line 
+	-> Use that as the input for the command which counts the number of lines 
+	-> wc <- Word count 
+	-> -l <- Lines 
+-> grep -o 'cat[a-z]*' kitty_ipsum_1.txt | wc -l >> kitty_info.txt
+	-> Append (>>) the output of the previous command to this txt file
+-> echo -e "\nLines that they appear on:" >> kitty_info.txt
+	-> Append this line to this txt file 
+-> grep -n 'cat[a-z]*' kitty_ipsum_1.txt
+	-> grep (search for) all of the words in this txt file which start with cat
+	-> Print out the lines of the text which match the search, and in front of each line print out the number in the original text which it was 
+-> grep -n 'cat[a-z]*' kitty_ipsum_1.txt | sed -E 's/([0-9]+).*/\1/' 
+	-> -E <- Extended regular expression flag 
+	-> sed <- Extract only the line numbers (just find this)
+	-> Take the output of the previous line, and replace it with this 
+	-> Use these regex flags so that its case sensitive, and others 
+-> grep -n 'cat[a-z]*' kitty_ipsum_1.txt | sed -E 's/([0-9]+).*/\1/' >> kitty_info.txt
+	-> Add (>>) the output of the previous command to this txt file 
+-> echo -e "\n\n~~ kitty_ipsum_2.txt info ~~" >> kitty_info.txt
+	-> Add this line to this txt file 
+-> echo -e "\nNumber of lines:" >> kitty_info.txt
+-> cat kitty_ipsum_2.txt | wc -l >> kitty_info.txt
+	-> wc - l <- Word count the number of lines (-l flag)
+	-> cat kitty_ipsum_2.txt | wc -l <- Take the entire contents of this file, and pipe that as the input into the command which counts the number of lines in it
+	-> >> kitty_info.txt <- Now add the result of that to this txt file 
+-> echo -e "\nNumber of words:" >> kitty_info.txt
+	-> Add this line to this txt file 
+	-> Then we are going to append this piece of information to the file 
+-> wc -w < kitty_ipsum_2.txt >> kitty_info.txt
+	-> The number of words 
+	-> wc -w < kitty_ipsum_2.txt <- Take this txt file, and use it as an input to this commands which counts the number of words 
+		-> This is redirection
+	-> >> kitty_info.txt <- Then take the output of that entire txt command, and add (>>, append) it to this txt file 
+-> echo -e "\nNumber of characters:" >> kitty_info.txt
+	-> Add (>>) this statement to this txt file 
+	-> -e <- This is a flag 
+-> wc -m < kitty_ipsum_2.txt >> kitty_info.txt
+	-> >> kitty_info.txt <- Add it to this txt file 
+	-> wc -m < kitty_ipsum_2.txt <- Perform the wc -m program using this txt file as an input to it 
+-> grep --color 'meow[a-z]*' kitty_ipsum_2.txt
+	-> We are using grep to search for patterns in the txt file 
+	-> Searching for variations of meow, take the entire block of text which you searched and return what we were searching for highlighted red in bold 
+-> echo -e "\nNumber of times meow or meowzer appears:" >> kitty_info.txt
+	-> -e <- This is a flag 
+	-> Add (>>) this statement to this txt file 
+-> grep -o 'meow[a-z]*' kitty_ipsum_2.txt | wc -l >> kitty_info.txt
+	-> grep -o 'meow[a-z]*' kitty_ipsum_2.txt | wc -l <- Extract the number 
+	-> >> kitty_info.txt <- Append it to the txt file 
+	-> -o <- This is a flag 
+	-> Search (grep) for this pattern in this txt file, count the number of lines which this comes out with and add that number to this file 
+-> echo -e "\nLines that they appear on:" >> kitty_info.txt
+	-> Add (>>, append) this line to this txt file 
+-> grep -n 'meow[a-z]*' kitty_ipsum_2.txt | sed -E 's/([0-9]+).*/\1/' >> kitty_info.txt
+	-> Add line numbers 
+	-> -n < This is a flag for the line numbers 
+	-> -E <- This is a flag to allow regular extended expressions 
+	-> Search for all of the words which begin with meow in this txt file, and put them on their own lines
+	-> Then count the number of lines, perform a search and replace and add (>>, append) the output of that to this txt file 
+-> grep --color 'cat[a-z]*' kitty_ipsum_2.txt
+	-> Variations 
+	-> --color <- This is a flag 
+	-> Search for all of the words which begin with cat in this txt file 
+	-> Print the txt file out in the terminal, with all of the terms which match what you want me to search for bold and red 
+-> echo -e "\nNumber of times cat, cats, or catnip appears:" >> kitty_info.txt
+	-> Add this line to this txt file 
+	-> \n <- New line in front of the text 
+-> grep -o 'cat[a-z]*' kitty_ipsum_2.txt | wc -l >> kitty_info.txt
+-> echo -e "\nLines that they appear on:" >> kitty_info.txt
+-> grep -n 'cat[a-z]*' kitty_ipsum_2.txt | sed -E 's/([0-9]+).*/\1/' >> kitty_info.txt
+-> touch translate.sh
+-> chmod +x translate.sh
+-> ./translate.sh kitty_ipsum_1.txt
+-> ./translate.sh < kitty_ipsum_1.txt
+-> cat kitty_ipsum_1.txt | ./translate.sh
+-> ./translate.sh kitty_ipsum_1.txt
+-> ./translate.sh kitty_ipsum_1.txt | grep --color 'dogchow'
+-> ./translate.sh kitty_ipsum_1.txt | grep --color 'catnip'
+-> ./translate.sh kitty_ipsum_1.txt | grep --color 'dog[a-z]*'
+-> ./translate.sh kitty_ipsum_1.txt | grep --color 'cat[a-z]*'
+-> ./translate.sh kitty_ipsum_1.txt | grep --color 'dog[a-z]*|woof[a-z]*'
+-> ./translate.sh kitty_ipsum_1.txt | grep --color -E 'dog[a-z]*|woof[a-z]*'
+-> ./translate.sh kitty_ipsum_1.txt | grep --color -E 'meow[a-z]*|cat[a-z]*'
+-> ./translate.sh kitty_ipsum_1.txt > doggy_ipsum_1.txt
+-> cat doggy_ipsum_1.txt
+-> diff kitty_ipsum_1.txt doggy_ipsum_1.txt
+-> man diff
+-> diff --color kitty_ipsum_1.txt doggy_ipsum_1.txt
+-> ./translate.sh kitty_ipsum_2.txt > doggy_ipsum_2.txt
+-> cat doggy_ipsum_2.txt
+-> diff --color kitty_ipsum_2.txt doggy_ipsum_2.txt
