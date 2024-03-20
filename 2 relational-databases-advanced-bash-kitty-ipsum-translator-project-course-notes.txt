@@ -1,1 +1,177 @@
--> INSERT
+-> CodeRoad: Start <- To start the VM in the command palette 
+-> echo hello bash
+-> echo hello bash > stdout.txt
+	-> This is redirecting the output of a command into a file 
+	-> This creates a txt file 
+-> echo hello bash >> stdout.txt
+	-> >> <- To append to a file 
+-> echo hello bash > stdout.txt
+	-> To override the file 
+-> > stdout.txt
+	-> To redirect nothing into the file (to empty it)
+-> bad_command > stderr.txt <- Another example 
+-> bad_command 2> stderr.txt
+	-> stdout (standard out) -> for when a command is successful
+	-> stderr -> for when a command isn't successful 
+	-> Redirecting the error of a command we know is wrong into a file 
+-> echo hello bash 1> stdout.txt
+	-> Redirecting the error message to another file meant that it wasn't printed in the terminal 
+	-> It redirected to a file 
+-> read NAME
+	-> stdin (standard in) <- For input 
+	-> Keyboard is the default 
+	-> read NAME <- To see a command that uses stdin 
+-> read NAME 
+	-> It's asking for an input <- This is how you ask the user for an input in Bash (read the input which the user enters)
+	-> echo $NAME 
+	-> It actually creates a variable when you do this 
+-> echo $NAME > stdout.txt
+	-> When you redirect to a file like this, it's actually overwriting the content of that file 
+-> echo freeCodeCamp > name.txt
+	-> Redirecting to a file which doesn't exist will create that file and then fill it with whatever you are redirecting to it 
+-> read NAME < name.txt 
+	-> < <- For input 
+	-> > <- For output 
+		-> You read from left to right, do it makes sense that this is output (we more commonly see them)
+	-> read <- Creates a variable and sets it value equal to whatever the user enters
+	-> It's a command which we're running -> then piping what is input into that variable into the name.txt file 
+	-> Something is input into a variable -> so we're redirecting that input to another file 
+	-> When something is output from a program, function, et al we use >, because it is being output from that program - not for example only taking input from the user 
+-> echo firstName | read NAME 
+	-> To pipe (|) the output of one command to the input of another 
+		-> This creates another subshell / process
+		-> Effectively another terminal where this took place (not this one)
+	-> The output of the first command is the stdout (standard output)
+	-> The input of the other command is the stdin (standard input)
+-> echo $NAME <- To test if this worked
+	-> Once you have answers from solving problems, you check them to see if they make sense 
+-> cat
+	-> Concatenate 
+	-> Display the contents of the files, or concatenate them together 
+-> Control C <- To back out of a process which is running in the terminal 
+-> cat name.txt
+	-> name.txt is the argument of that command 
+	-> It's printing the contents of the file 
+-> cat < name.txt
+	-> This does the same thing as in the previous line (overall)
+	-> Take what is stored in the name.txt file, and use it as the standard input of the cat file 
+	-> Which prints its contents into the terminal 
+-> echo firstName | cat
+	-> Pipe the output of the first command into the second
+	-> ('Print the first name in the terminal') <- take the command which does this, and pipe its output as the input of the command which prints outputs into the terminal 
+-> touch script.sh
+-> chmod +x script.sh
+	-> We have made a shell script and given it executable file permissions 
+	-> #!/bin/bash <- Then added a shebang line so it uses a Bash interpreter 
+-> ./script.sh <- Running the .sh file 
+	-> stdin <- Standard input
+	-> stdout <- Standard output 
+	-> stderr <- Standard error 
+	-> script.sh is a file (like the txt file we used cat on earlier was)
+	-> You can pipe the output of Bash scripts 
+-> echo firstName | ./script.sh
+	-> This means, pipe the output of the first command as the input to the second one 
+-> echo firstName | ./script.sh 2> stderr.txt
+	-> echo firstName | ./script.sh <- Pipe the output of the first command as the input of the second one (use this as the argument of the script.sh file when it's run
+	-> 2> stderr.txt <- And pipe the output of this to the stderr.txt file 
+-> echo firstName | ./script.sh 2> stderr.txt > stdout.txt
+	-> echo firstName | ./script.sh <- Use (pipe) the output of this command as the input to the second one 
+	-> 2> stderr.txt > stdout.txt 
+		-> This does two redirections <- redirection meaning, take the output of this and store it in this file 
+		-> The first is to take the second output of the ./script.sh command and put it into the stderr.txt file 
+		-> The second was to take the output of the ./script.sh command and put it into the stdout.txt file 
+		-> In this case the first output of the ./script.sh command was an error message and the second was a valid output
+		-> This is the contents of that Bash script:
+			#!/bin/bash
+			read NAME
+			echo Hello $NAME
+			bad_command
+-> ./script.sh < name.txt
+	-> If a program has multiple outputs, you can redirect them to several different files 
+	-> Use the contents of the name.txt file as the input to the script.sh shell file, and run it
+-> ./script.sh < name.txt 2> stderr.txt
+	-> Run the same command as before, but take the second output (the error message) and redirect it into another txt file 
+-> ./script.sh < name.txt 2> stderr.txt > stdout.txt
+ 	-> The same as the previous file, but redirect the first output of the program to a different txt file 
+-> cat kitty_ipsum_1.txt <- Print the contents of this file into the terminal 
+	-> When the argument of the cat function is a single file, print the contents of that file in the terminal 
+	-> kitty_ipsum <- This contains placeholder text 
+-> wc kitty_ipsum_1.txt
+	-> Return file metadata
+	-> That file is the argument of the command 
+-> man wc <- Manual pages
+-> wc -l kitty_ipsum_1.txt
+	-> Word count
+	-> -l is a flag 
+	-> Only the number of lines in the file
+-> wc -w kitty_ipsum_1.txt
+	-> Count the number of words 
+-> wc -m kitty_ipsum_1.txt
+	-> How many characters the file has 
+	-> -m < This is a flag
+-> wc kitty_ipsum_1.txt 
+	-> Bite count 
+-> cat kitty_ipsum_1.txt | wc
+-> wc < kitty_ipsum_1.txt
+	-> | might not give you what you want -> instead you might need to use < to redirect the output of one command as the input to the next
+-> echo "~~ kitty_ipsum_1.txt info ~~" > kitty_info.txt
+	-> Print this string in a new file called kitty_info.txt we are going to populate 
+-> echo -e "\nNumber of lines:" >> kitty_info.txt
+	-> To append output to a file 
+-> cat kitty_ipsum_1.txt | wc -l >> kitty_info.txt
+	-> cat kitty_ipsum_1.txt <- Take all of the content of this txt file
+	-> | wc -l <- Pipe the contents of that file to the input of this command 
+		-> Use the word count command and the flag which counts the number of lines in that file 
+	-> Append the output of that to the txt file called kitty_info.txt
+-> echo -e "\nNumber of words:" >> kitty_info.txt
+	-> This does the same thing as the previous line, but for the word count 
+	-> -e <- Read as 'e flag'
+-> cat kitty_ipsum_1.txt | wc -w >> kitty_info.txt
+	-> | <- The pipe method 
+	-> -w <- A flag 
+-> echo -e "\nNumber of characters:" >> kitty_info.txt
+	-> This is the same but with the number of characters 
+	-> >> <- Append 
+-> wc -m < kitty_ipsum_1.txt >> kitty_info.txt
+	-> < <- Redirection method 
+	-> wc -m < kitty_ipsum_1.txt <- Count the number of characters in this file, by using it as the input to this method 
+	-> >> kitty_info.txt <- Take the output of that entire thing, and append it to this file 
+-> grep 'meow' kitty_ipsum_1.txt
+	-> Searching for patterns in text 
+	-> Search for this pattern in this file 
+-> man grep <- Manual pages
+-> grep --color 'meow' kitty_ipsum_1.txt
+	-> Print the entire file out and highlight the parts of it which we're searching for 
+-> grep --color -n 'meow' kitty_ipsum_1.txt
+	-> Do the same as the previous command, but in the output return the lines of each of the matches it finds 
+-> grep --color -n 'meow[a-z]*' kitty_ipsum_1.txt
+	-> meow[a-z]* <- To see all words in the file that start with meow 
+-> echo -e "\nNumber of times meow or meowzer appears:" >> kitty_info.txt
+	-> 
+
+
+
+
+
+
+
+
+
+
+Looking at the output, you can see that it matched meow and meowzer, instead of just meow. Use the echo command and redirection to append the text Number of times meow or meowzer appears:, with a new line in front of it, to the kitty_info.txt file.
+
+1. Here's an example: <command> >> <filename>
+
+2. You want the echo command with the -e flag and the new line character (\n)
+
+3. You previously entered echo -e "\nNumber of characters:" >> kitty_info.txt
+
+4. Enter echo -e "\nNumber of times meow or meowzer appears:" >> kitty_info.txt in the terminal
+
+
+
+
+
+
+
+
