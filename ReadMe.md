@@ -3,7 +3,7 @@
 I independently completed [my eighth project](https://www.freecodecamp.org/learn/relational-database/learn-advanced-bash-by-building-a-kitty-ipsum-translator/build-a-kitty-ipsum-translator) in freeCodeCamp's [Relational Databases course](https://www.freecodecamp.org/learn/relational-database/) to improve my shell scripting and Bash skills. This curriculum consisted of 14 guided projects, to be completed in a Gitpod environment. My notes outlining the names (et al) of these guided projects are [here](https://github.com/franpanteli/8--Relational-Databases-Advanced-Bash-Kitty-Ipsum-Translator-Project/blob/main/0%20relational-databases-course-overview.txt). This repository is for the eighth of these projects I completed as part of this.
 
 ## Writing a Kitty Ipsum translator with Bash
-### Problem Solving
+### Outline
 For this project, I had to follow 140 Bash lessons in a Gitpod environment, to create a Kitty Ipsum translator. My notes on the full task brief for this are [here](https://github.com/franpanteli/8--Relational-Databases-Advanced-Bash-Kitty-Ipsum-Translator-Project/blob/main/1%20project-task-notes.txt). This created the project [translate.sh](https://github.com/franpanteli/Relational-Databases-Advanced-Bash-Kitty-Ipsum-Translator-Project/blob/main/translate.sh) file, to find and replace specific words in the 'dog' placeholder text with their words in the 'cat' placeholder text.
 
 ### Full Project Workflow 
