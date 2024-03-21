@@ -307,26 +307,63 @@
 	-> Add this line to this txt file 
 	-> \n <- New line in front of the text 
 -> grep -o 'cat[a-z]*' kitty_ipsum_2.txt | wc -l >> kitty_info.txt
+	-> -o <- This is a flag
+	-> Counting the number of lines 
+	-> Search (grep) for words which start with this in this txt file, then count the number of lines they take up
+	-> Add that number to the end of this txt file 
 -> echo -e "\nLines that they appear on:" >> kitty_info.txt
+	-> Add (>>, append) this text to the end of this txt file 
 -> grep -n 'cat[a-z]*' kitty_ipsum_2.txt | sed -E 's/([0-9]+).*/\1/' >> kitty_info.txt
+	-> Search for words which begin with cat in this txt file 
+	-> Perform this search and replace (sed), where we only return the line numbers
+	-> Add that result to the end of this txt file 
 -> touch translate.sh
+	-> Create a new shell (Bash) file 
 -> chmod +x translate.sh
+	-> Add executable file permissions to that Bash file, so it can be run in the terminal 
 -> ./translate.sh kitty_ipsum_1.txt
+	-> Execute this Bash file, and pass in this other file as the argument to that program 
 -> ./translate.sh < kitty_ipsum_1.txt
+	-> This does the same as the previous line, but using standard input redirection
 -> cat kitty_ipsum_1.txt | ./translate.sh
+	-> Pipe the contents of this txt file as the input to this other .sh file 
 -> ./translate.sh kitty_ipsum_1.txt
+	-> Execute this Bash file, with this txt file as the input to the program 
+
 -> ./translate.sh kitty_ipsum_1.txt | grep --color 'dogchow'
+	-> Before the pipe: ./translate.sh kitty_ipsum_1.txt
+		-> Take this txt file and pass it as an argument into this .sh file 
+	-> After the pipe: grep --color 'dogchow'
+		-> Take the output of running the program, and search (grep) for 'dogchow' in the text
+		-> When you find something which matches that in the text, highlight it red 
 -> ./translate.sh kitty_ipsum_1.txt | grep --color 'catnip'
+	-> This is the same as the previous line, but with 'catnip' not 'dogchow'
 -> ./translate.sh kitty_ipsum_1.txt | grep --color 'dog[a-z]*'
--> ./translate.sh kitty_ipsum_1.txt | grep --color 'cat[a-z]*'
--> ./translate.sh kitty_ipsum_1.txt | grep --color 'dog[a-z]*|woof[a-z]*'
--> ./translate.sh kitty_ipsum_1.txt | grep --color -E 'dog[a-z]*|woof[a-z]*'
--> ./translate.sh kitty_ipsum_1.txt | grep --color -E 'meow[a-z]*|cat[a-z]*'
+	-> This is the same as with the previous line, but we are searching for words starting with 'dog', rather than 'catnip'
+-> These are all the line, but they just highlight different parts of the text:
+	-> ./translate.sh kitty_ipsum_1.txt | grep --color 'cat[a-z]*'
+		-> Text that starts with cat 
+	-> ./translate.sh kitty_ipsum_1.txt | grep --color 'dog[a-z]*|woof[a-z]*'
+		-> Text that starts with 'dog', or 'woof'
+	-> ./translate.sh kitty_ipsum_1.txt | grep --color -E 'dog[a-z]*|woof[a-z]*'
+		-> -E <- This is a flag that searches with extended regular expression syntax 
+	-> ./translate.sh kitty_ipsum_1.txt | grep --color -E 'meow[a-z]*|cat[a-z]*'
+		-> Text that starts with meow or cat followed by any lowercase letters 
 -> ./translate.sh kitty_ipsum_1.txt > doggy_ipsum_1.txt
+	-> Execute the shell file with this txt file as the argument to the program 
+	-> Take the result of that, and put the output (>) in this other txt file 
 -> cat doggy_ipsum_1.txt
+	-> Now show me the entire contents of that txt file 
 -> diff kitty_ipsum_1.txt doggy_ipsum_1.txt
+	-> Compare the contents of these two txt files (show me their differences)
 -> man diff
+	-> Show me the manual pages for this command 
 -> diff --color kitty_ipsum_1.txt doggy_ipsum_1.txt
+	-> Do the same as the previous line, but colour code the differences 
 -> ./translate.sh kitty_ipsum_2.txt > doggy_ipsum_2.txt
+	-> ./translate.sh kitty_ipsum_2.txt <- Execute this shell file, and use this txt file as the input to the program 
+	-> Redirect the output of that program (>) to this txt file 
 -> cat doggy_ipsum_2.txt
+	-> Print out the contents of this file 
 -> diff --color kitty_ipsum_2.txt doggy_ipsum_2.txt
+	-> Compare the differences between these two txt files and highlight them in colour
