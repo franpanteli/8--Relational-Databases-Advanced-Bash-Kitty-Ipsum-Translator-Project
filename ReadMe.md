@@ -4,7 +4,7 @@ I independently completed [my eighth project](https://www.freecodecamp.org/learn
 
 ## Writing a Kitty Ipsum translator with Bash
 ### Problem Solving
-For this project, I had to follow 140 Bash lessons in a Gitpod environment, to create a Kitty Ipsum translator. My notes on the full task brief for this are [here](https://github.com/franpanteli/8--Relational-Databases-Advanced-Bash-Kitty-Ipsum-Translator-Project/blob/main/1%20project-task-notes.txt). This created the project [translate.sh](https://github.com/franpanteli/Relational-Databases-Advanced-Bash-Kitty-Ipsum-Translator-Project/blob/main/translate.sh) file, to find and replace specific words in 'dog' placeholder text into their words 'cat' placeholder text.
+For this project, I had to follow 140 Bash lessons in a Gitpod environment, to create a Kitty Ipsum translator. My notes on the full task brief for this are [here](https://github.com/franpanteli/8--Relational-Databases-Advanced-Bash-Kitty-Ipsum-Translator-Project/blob/main/1%20project-task-notes.txt). This created the project [translate.sh](https://github.com/franpanteli/Relational-Databases-Advanced-Bash-Kitty-Ipsum-Translator-Project/blob/main/translate.sh) file, to find and replace specific words in 'dog' placeholder text with their words in 'cat' placeholder text.
 
 ### Solution Workflow 
 - To solve this problem, the project boilerplate files were first cloned in a Gitpod environment 
